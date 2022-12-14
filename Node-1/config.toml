@@ -1,0 +1,12 @@
+data-path="data"
+
+ 
+rpc-http-enabled=true 
+rpc-http-api=["ETH","NET","IBFT"] 
+host-allowlist=["*"]
+rpc-http-cors-origins=["all"] 
+rpc-http-host="0.0.0.0" 
+
+#Chain
+genesis-file="../genesis.json"
+min-gas-price=0
