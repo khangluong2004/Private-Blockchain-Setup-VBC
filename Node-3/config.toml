@@ -1,17 +1,18 @@
 data-path="data"
 
 #Network
-bootnodes=["enode://9292ca377726362a544a0c0da1df4cd52950e145e4e0de4af61d670926fc841fbdf6435fa2b03ac351d3653587301b1102c7357e118a68e885c0560a09577d40@127.0.0.1:30303"]
+bootnodes=["enode://9292ca377726362a544a0c0da1df4cd52950e145e4e0de4af61d670926fc841fbdf6435fa2b03ac351d3653587301b1102c7357e118a68e885c0560a09577d40@127.0.0.1:30303", "enode://13ef038b5477c0ee30b0426d0d47f9a9cc29b7c82cd75829bb951711e4eec6997c48be533ef4986caba09119aa77a6b7b7f22a3b7d2f89cbf467c79669f55cb8@127.0.0.1:30404","enode://3599602ce78a875c97437d60a699509f8f92a889f27109d1aa2266e1802472ec0f37941bcde5fe4ad1b2237c50b409ea09ddb68e98f350cb052593955e75e34a@127.0.0.1:30405","enode://a2fe73fff7707bc7d4f0975afb78a56ca36b9b38aebe98b0ba0cb825c43aec5af905e871a4ffacc7bbca19dcda88c36675e0da3bde8d3fde6e4e67caf27291e6@127.0.0.1:30406"]
  
 rpc-http-enabled=true 
 rpc-http-api=["ETH","NET","IBFT"] 
 host-allowlist=["*"]
 
-p2p-port=30305
-rpc-http-port=8547
+p2p-port=30405
+rpc-http-port=8577
 
 rpc-http-cors-origins=["all"] 
-rpc-http-host="0.0.0.0" 
+rpc-http-host="0.0.0.0"
+p2p-host="0.0.0.0" 
 
 #Chain
 genesis-file="../genesis.json"

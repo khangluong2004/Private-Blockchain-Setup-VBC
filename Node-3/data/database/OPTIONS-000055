@@ -5,7 +5,7 @@
 #
 
 [Version]
-  rocksdb_version=7.7.3
+  rocksdb_version=7.6.0
   options_file_version=1.1
 
 [DBOptions]
@@ -65,7 +65,7 @@
   track_and_verify_wals_in_manifest=false
   paranoid_checks=true
   max_file_opening_threads=16
-  verify_sst_unique_id_in_manifest=true
+  verify_sst_unique_id_in_manifest=false
   avoid_flush_during_recovery=false
   flush_verify_memtable_count=true
   db_host_id=__hostname__
@@ -161,36 +161,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable "default"]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -264,36 +263,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -367,36 +365,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -470,36 +467,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -573,36 +569,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -676,36 +671,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -779,36 +773,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -882,36 +875,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -985,36 +977,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable "\r"]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -1088,36 +1079,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -1191,36 +1181,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -1294,36 +1283,35 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
 
@@ -1397,35 +1385,34 @@
   table_factory=BlockBasedTable
   
 [TableOptions/BlockBasedTable ""]
-  num_file_reads_for_auto_readahead=2
-  initial_auto_readahead_size=8192
-  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
-  enable_index_compression=true
   pin_top_level_index_and_filter=true
+  block_align=false
   read_amp_bytes_per_bit=0
+  enable_index_compression=true
   verify_compression=false
+  detect_filter_construct_corruption=false
+  whole_key_filtering=true
+  max_auto_readahead_size=262144
+  optimize_filters_for_memory=true
+  index_block_restart_interval=1
   prepopulate_block_cache=kDisable
+  block_restart_interval=16
+  block_size=32768
   format_version=5
   partition_filters=false
-  metadata_block_size=4096
-  max_auto_readahead_size=262144
-  index_block_restart_interval=1
   block_size_deviation=10
-  block_size=32768
-  detect_filter_construct_corruption=false
   no_block_cache=false
   checksum=kCRC32c
-  filter_policy=bloomfilter:10:false
   data_block_hash_table_util_ratio=0.750000
-  block_restart_interval=16
-  index_type=kBinarySearch
-  pin_l0_filter_and_index_blocks_in_cache=false
-  data_block_index_type=kDataBlockBinarySearch
-  cache_index_and_filter_blocks_with_high_priority=true
-  whole_key_filtering=true
   index_shortening=kShortenSeparators
-  cache_index_and_filter_blocks=false
-  block_align=false
-  optimize_filters_for_memory=false
+  data_block_index_type=kDataBlockBinarySearch
+  filter_policy=nullptr
+  metadata_block_size=4096
+  index_type=kBinarySearch
+  metadata_cache_options={unpartitioned_pinning=kFallback;partition_pinning=kFallback;top_level_index_pinning=kFallback;}
+  pin_l0_filter_and_index_blocks_in_cache=false
+  cache_index_and_filter_blocks_with_high_priority=true
+  initial_auto_readahead_size=8192
+  cache_index_and_filter_blocks=true
   flush_block_policy_factory=FlushBlockBySizePolicyFactory
   
